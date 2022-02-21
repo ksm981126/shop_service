@@ -1,5 +1,4 @@
-<%@page language="java" contentType="text/html; encoding=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -8,36 +7,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/assets/css/join.css">
     <script src="/assets/js/join.js"></script>
 </head>
 <body>
     <main>
         <div class="join_form">
             <h1>회원가입</h1>
-            <p>User Email</p>
+            <span>User Email</span>
             <input type="text" id="mi_email" placeholder="사용자 이메일">
-            <p>Password</p>
+            <span>Password</span>
             <input type="password" id="mi_pwd" placeholder="비밀번호">
-            <p>Password Confirm</p>
+            <span>Password Confirm</span>
             <input type="password" id="mi_pwd_confirm" placeholder="비밀번호 확인">
-            <p>User Name</p>
+            <span>User Name</span>
             <input type="text" id="mi_name" placeholder="이름">
-            <p>Birthday</p>
+            <span>Birthday</span>
             <input type="text" id="mi_birth" placeholder="생년월일 (20220204)">
-            <p>Gender</p>
+            <span>Gender</span>
             <select id="mi_gen">
                 <option value="0">선택안함</option>
-                <option value="1">남성</option>
-                <option value="2">여성</option>
+                <option value="1">남자</option>
+                <option value="2">여자</option>
             </select>
-            <p>Cell Phone Number</p>
+            <span>Cell Phone Number</span>
             <input type="text" id="mi_phone" placeholder="전화번호 (01012345678)">
-            <p>Address</p>
+            <span>Address</span>
             <input type="text" id="mi_address" placeholder="주소">
-            <div class="btns">
-                <button id="join">회원가입</button>
-                <button id="cancel">취소</button>
-            </div>
+            <button id="join"><i class="fas fa-sign-in"></i> 회원가입</button>
+            <button id="cancel"><i class="fas fa-times"></i> 취소</button>
         </div>
     </main>
     <%@include file="/WEB-INF/views/includes/footer.jsp"%>
