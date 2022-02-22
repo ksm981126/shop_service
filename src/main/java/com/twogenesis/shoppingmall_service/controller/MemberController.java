@@ -5,22 +5,28 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 import com.twogenesis.shoppingmall_service.data.CartInfoVO;
 import com.twogenesis.shoppingmall_service.data.MemberVO;
+import com.twogenesis.shoppingmall_service.data.ProductVO;
 import com.twogenesis.shoppingmall_service.mapper.MemberMapper;
+import com.twogenesis.shoppingmall_service.mapper.OrderMapper;
 import com.twogenesis.shoppingmall_service.mapper.ProductMapper;
 import com.twogenesis.shoppingmall_service.util.AESAlgorithm;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/member")
 public class MemberController {
+    @Autowired OrderMapper order_mapper;
     @Autowired MemberMapper mapper;
     @Autowired ProductMapper prod_mapper;
     @GetMapping("/login")
@@ -103,5 +109,37 @@ public class MemberController {
         model.addAttribute("total_price",total_price);
         model.addAttribute("total_d_price",total_d_price);
         return "/member/cart";
+    }
+    @GetMapping("/order_list")
+    public String getMemberOrderList(Model model, @RequestParam @Nullable Integer offset, HttpSession session){
+        MemberVO login_user = (MemberVO)session.getAttribute("login_user");
+        if(login_user == null) return "redirect:/member/login";
+
+        if(offset == null) offset =0;
+        Integer cnt =order_mapper.selectOrderSummaryCount(login_user.getMi_seq());
+        Integer page = (cnt/10) + (cnt%10 >0 ? 1:0);
+
+        model.addAttribute("list",order_mapper.selectOrderSummary(login_user.getMi_seq(), offset));
+        model.addAttribute("page",page);
+        model.addAttribute("offset",offset);
+        return "/member/order_list";
+    }
+    @GetMapping("/review")
+    public String getMemberReview(
+        @RequestParam Integer product, 
+        @RequestParam Integer order, 
+        HttpSession session,Model model
+        ){
+        MemberVO login_user = (MemberVO)session.getAttribute("login_user");
+        if(login_user == null) return "redirect:/member/login";
+
+        if(mapper.isExistReview(login_user.getMi_seq(), product, order) == 1){
+            return "redirect:/member/order_list";
+        }
+
+        model.addAttribute("product",product);
+        model.addAttribute("order",order);
+        model.addAttribute("prod",prod_mapper.selectProductBySeq(product));
+        return "/member/review";
     }
 }

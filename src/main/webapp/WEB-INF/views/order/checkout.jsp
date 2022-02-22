@@ -104,7 +104,7 @@
                         <tr>
                             <td class="td_title">결제방법</td>
                             <td class="payment_type">
-                                <input type="radio" name="pay" id="account" value="account">
+                                <input type="radio" name="pay" id="account" value="account" checked>
                                 <label for="account">계좌이체</label>
                                 <input type="radio" name="pay" id="card" value="card">
                                 <label for="card">신용카드</label>

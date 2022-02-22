@@ -26,7 +26,7 @@
             }
         }
         //현재 접속한 페이지가 로그인이 아닐 경우
-        if(url_array[url_array.length - 1] != "login")
+        if(url_array[url_array.length - 1] != "login" && url_array[url_array.length -1] != "join")
         // 세션에 이전 페이지의 url 정보를 기록한다.
         sessionStorage.setItem("prev_url", url);
     </script>
@@ -79,7 +79,7 @@
                         <button id="search_btn">검색</button>
                     </div>
                     <div class="myservice">
-                        <a href="#">
+                        <a href="/member/order_list">
                             <i class="fas fa-list"></i><br>
                             <span>주문목록</span>
                         </a>
