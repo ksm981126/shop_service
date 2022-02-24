@@ -29,6 +29,7 @@
         if(url_array[url_array.length - 1] != "login" && url_array[url_array.length -1] != "join")
         // 세션에 이전 페이지의 url 정보를 기록한다.
         sessionStorage.setItem("prev_url", url);
+        let search_type ='${type}'
     </script>
     <script src="/assets/js/header.js"></script>
 </head>
@@ -75,7 +76,7 @@
                             <option value="seller">판매자</option>
                             <option value="manufacturer">제조사</option>
                         </select>
-                        <input type="text" id="keyword">
+                        <input type="text" id="keyword" value="${keyword}">
                         <button id="search_btn">검색</button>
                     </div>
                     <div class="myservice">

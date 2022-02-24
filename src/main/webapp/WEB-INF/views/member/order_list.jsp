@@ -61,5 +61,5 @@
             </div>
         </div>
     </main>
-    ${list}
+    <%@include file="/WEB-INF/views/includes/footer.jsp"%>
 </body>

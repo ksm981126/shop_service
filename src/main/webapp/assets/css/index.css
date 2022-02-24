@@ -33,5 +33,16 @@
 .origin_price {font-size: 14px; color: #bbb; text-decoration: line-through;}
 .item_list {padding-top: 100px;}
 .item_list > h1 {
-    width: 1100px; margin: 0 auto; font-size: 32px; color: #333; margin-bottom: 50px;
+    width: 1100px; margin: 0 auto; font-size: 32px; color: #333; margin-bottom: 50px; text-align: center;
 }
+.pager_area {
+    text-align: center; margin-top: 20px; padding-bottom: 50px;
+}
+.pager_area a {
+    text-decoration: none; color: #666; margin: 5px; font-size: 18px;
+}
+.pager_area a.current {color: #000; font-weight: 700;}
+
+
+.list_contents .empty h1{font-size: 28px; text-align: center; color: #999;}
+.list_contents .empty {padding: 100px 0;}

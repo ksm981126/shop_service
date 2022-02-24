@@ -77,4 +77,17 @@ $(function(){
     else {
         $(".cart_badge").css("display","none");
     }
+    $("#search_btn").click(function(){
+        let type=$("#type option:selected").val();
+        let keyword=$("#keyword").val();
+        location.href="/product/search?type="+type+"&keyword="+keyword;
+    })
+    if(search_type != '' && search_type !=null)
+        $("#type").val(search_type).prop("selected", true);
+    
+    $("#keyword").keydown(function(e){
+        if(e.keyCode == 13){
+            $("#search_btn").trigger("click");
+        }
+    })
 })

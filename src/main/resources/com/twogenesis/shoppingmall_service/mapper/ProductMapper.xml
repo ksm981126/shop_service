@@ -58,4 +58,86 @@
     <update id="updateCartItemStatusToDelete">
         update shopping_cart_data set scd_status =2 where scd_seq =#{seq}
     </update>
+
+    <select id="selectProductByCateSeqList" resultType="com.twogenesis.shoppingmall_service.data.ProductVO">
+        select * from product_detail_info where cate_seq in
+        <foreach collection="seq_list" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+        order by pi_seq desc
+        limit 12 offset #{offset}
+    </select>
+    <select id="selectProductsCntByCateSeqList" resultType="java.lang.Integer">
+        select count(*) from product_detail_info where cate_seq in
+        <foreach collection="seq_list" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+    </select>
+    <select id="selectProductSearch" resultType="com.twogenesis.shoppingmall_service.data.ProductVO">
+        select * from product_detail_info 
+        where
+        <if test="type == 'none'">
+            pi_name like #{keyword} or mfi_name like #{keyword} or si_name like #{keyword}
+        </if>
+        <if test="type == 'name'">
+            pi_name like #{keyword}
+        </if>
+        <if test="type == 'seller'">
+            si_name like #{keyword}
+        </if>
+        <if test="type == 'manufacturer'">
+            mfi_name like #{keyword}
+        </if>
+        order by pi_seq desc
+        limit 12 offset #{offset}
+    </select>
+    <select id="selectProductSearchCnt" resultType="java.lang.Integer">
+        select count(*) from product_detail_info 
+        where
+        <if test="type == 'none'">
+            pi_name like #{keyword} or mfi_name like #{keyword} or si_name like #{keyword}
+        </if>
+        <if test="type == 'name'">
+            pi_name like #{keyword}
+        </if>
+        <if test="type == 'seller'">
+            si_name like #{keyword}
+        </if>
+        <if test="type == 'manufacturer'">
+            mfi_name like #{keyword}
+        </if>
+    </select>
+    
+    <select id="selectProductScore" resultType="java.util.Map">
+    select count(*) as cnt, avg(ri_score) from review_info
+    group by ri_pi_seq having ri_pi_seq = #{seq}
+    </select>
+
+    <select id="selectReviewList" resultType="com.twogenesis.shoppingmall_service.data.ReviewVO">
+    select a.*, b.mi_seq, b.mi_name
+    <if test="mi_seq !=0">
+    , c.rrh_mi_seq is null as report_able
+    </if>
+    from
+    review_info a left outer join member_info b 
+    on a.ri_mi_seq =b.mi_seq
+    <if test="mi_seq !=0">
+    left outer join (
+    	select * from review_report_history
+        where rrh_mi_seq = #{mi_seq}
+    ) c
+    on a.ri_seq = c.rrh_ri_seq
+    </if>
+    where ri_pi_seq = #{pi_seq}
+    order by ri_seq desc 
+    limit 10 offset #{offset}
+    </select>
+    <select id="selectReviewCnt" resultType="java.lang.Integer">
+    select count(*) from review_info a left outer join member_info b 
+    on a.ri_mi_seq =b.mi_seq
+    where ri_pi_seq = #{pi_seq}
+    </select>
+    <update id="updateReviewReport">
+        update review_info set ri_report_cnt = ri_report_cnt +1 where ri_seq =#{ri_seq}
+    </update>
 </mapper>

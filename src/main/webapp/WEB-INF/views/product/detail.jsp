@@ -41,6 +41,13 @@
                             <div class="seller_img" style="background-image:url(http://localhost:8756/image/seller/${item.si_img_url})"></div>
                             <p>${item.si_name}</p>
                         </div>
+                        <div class="item_score">
+                            <div class="score_box">
+                                <div class="score_box_bar" style="width: ${score.avg /5 * 100}%"></div>
+                                <img src="/assets/images/star_bg.png">
+                            </div>
+                            <p>총 삼품 리뷰 <b>${score.cnt}</b>개</p>
+                        </div>
                         <h2 class="item_name">[${item.mfi_name}] ${item.pi_name}</h2>
                         <c:if test="${item.pi_sub_title !=''}">
                             <p class="item_sub_title">${item.pi_sub_title}</p>
@@ -135,7 +142,27 @@
             </div>
         </section>
         <section class="item_review_area">
-
+            <h1>회원 리뷰</h1>
+            <table id="review_table">
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>내용</th>
+                        <th>별점</th>
+                        <th>작성자</th>
+                        <th>등록일</th>
+                        <th>수정일</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        
+                    </tr>
+                </tbody>
+            </table>
+            <div class="review_pager_area">
+                
+            </div>
         </section>
         <section class="item_qna_area">
 

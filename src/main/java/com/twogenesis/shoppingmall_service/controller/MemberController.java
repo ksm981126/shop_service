@@ -2,13 +2,10 @@ package com.twogenesis.shoppingmall_service.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 import com.twogenesis.shoppingmall_service.data.CartInfoVO;
 import com.twogenesis.shoppingmall_service.data.MemberVO;
-import com.twogenesis.shoppingmall_service.data.ProductVO;
 import com.twogenesis.shoppingmall_service.mapper.MemberMapper;
 import com.twogenesis.shoppingmall_service.mapper.OrderMapper;
 import com.twogenesis.shoppingmall_service.mapper.ProductMapper;

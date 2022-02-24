@@ -6,8 +6,7 @@ import java.util.Map;
 import javax.servlet.http.HttpSession;
 
 import com.twogenesis.shoppingmall_service.data.MemberVO;
-import com.twogenesis.shoppingmall_service.data.OrderSummaryVO;
-import com.twogenesis.shoppingmall_service.data.ReivewVO;
+import com.twogenesis.shoppingmall_service.data.ReviewVO;
 import com.twogenesis.shoppingmall_service.mapper.MemberMapper;
 import com.twogenesis.shoppingmall_service.util.AESAlgorithm;
 
@@ -38,7 +37,7 @@ public class MemberAPIController {
         return resultMap;
     }
     @PutMapping("/review")
-    public String putMemberReview(@RequestBody ReivewVO data,HttpSession session){
+    public String putMemberReview(@RequestBody ReviewVO data,HttpSession session){
         MemberVO login_user = (MemberVO)session.getAttribute("login_user");
         if(login_user == null) return "사용자 로그인 정보가 없습니다.";
         data.setRi_mi_seq(login_user.getMi_seq());

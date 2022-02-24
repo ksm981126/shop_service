@@ -12,7 +12,7 @@ section > div {width: 1100px; margin: 0 auto; padding-top: 50px;}
 .item_img_area {margin-right: 50px;}
 .seller_info > * {display: inline-block; vertical-align: middle;}
 .seller_info > p {margin-left: 5px; font-size: 14px; color: #434343;}
-.seller_info {margin-bottom: 15px;}
+.seller_info {margin-bottom: 5px;}
 .item_info_area {width: 620px;}
 .item_name {font-size: 28px; font-weight: 500; color: #333; margin-bottom: 10px;}
 .item_sub_title {color: #767676; margin-bottom: 15px;}
@@ -49,3 +49,12 @@ section > div {width: 1100px; margin: 0 auto; padding-top: 50px;}
 #shopping_bag {padding: 0; border: 0; height: 42px; margin-left: 10px; width: 220px; background-color: rgb(255, 106, 61); color: #fff; cursor: pointer;}
 #buy{padding: 0; border: 0; height: 42px; margin-left: 10px; width: 298px; background-color: rgb(255, 106, 61); color: #fff;}
 .item_desc_area{padding-top: 100px; text-align: center;}
+
+.item_score {margin-bottom: 10px;}
+.score_box {width: 80px; position: relative; display: inline-block; vertical-align: middle;}
+.item_score > p {vertical-align:  middle; display: inline-block; font-size: 14px; color: rgb(190, 55, 112); margin-left: 5px; top: -2px;}
+.score_box img {width: 100%; position: relative; z-index: 2;}
+.score_box .score_box_bar{
+    background-color: #FFB000;
+    height: 16px; position: absolute; z-index: 1; left: 0; top: 0;
+}

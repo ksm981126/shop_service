@@ -5,7 +5,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpSession;
 
 import com.twogenesis.shoppingmall_service.data.ProductVO;
 import com.twogenesis.shoppingmall_service.mapper.CategoryMapper;

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.twogenesis.shoppingmall_service.mapper.HistoryMapper">
+    <insert id="insertReviewReportHistory">
+        insert into review_report_history(rrh_mi_seq, rrh_ri_seq)
+        values (#{rrh_mi_seq}, #{rrh_ri_seq})
+    </insert>
+</mapper>
