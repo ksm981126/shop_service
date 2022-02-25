@@ -6,4 +6,13 @@
         insert into review_report_history(rrh_mi_seq, rrh_ri_seq)
         values (#{rrh_mi_seq}, #{rrh_ri_seq})
     </insert>
+
+    <insert id="insertPageConnectHistory">
+        INSERT INTO page_conn_history(pch_mi_seq, pch_url, pch_interval)
+        VALUES(#{pch_mi_seq}, #{pch_url}, #{pch_interval});
+    </insert>
+    <insert id="insertMemberProductHistory">
+        INSERT INTO member_prod_history(mph_mi_seq, mph_pi_seq, mph_interval)
+        VALUES(#{mph_mi_seq}, #{mph_pi_seq}, #{mph_interval});
+    </insert>
 </mapper>

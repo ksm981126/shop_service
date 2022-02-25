@@ -29,7 +29,10 @@
         if(url_array[url_array.length - 1] != "login" && url_array[url_array.length -1] != "join")
         // 세션에 이전 페이지의 url 정보를 기록한다.
         sessionStorage.setItem("prev_url", url);
+        
         let search_type ='${type}'
+        let conn_page_time =(new Date()).getTime();
+        let mi_seq ="${login_user.mi_seq}";
     </script>
     <script src="/assets/js/header.js"></script>
 </head>
