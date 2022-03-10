@@ -38,7 +38,7 @@
                 </c:if>
                 <c:forEach items="${list}" var="item">
                     <div class="list_item">
-                        <div class="thumb" style="background-image:url(http://localhost:8756/image/product/${item.thumbnail})">
+                        <div class="thumb" style="background-image:url(http://server02.hadoop.com:8756/image/product/${item.thumbnail})">
                         </div>
                         <a class="prod_name" href="/product/detail?index=${item.pi_seq}">
                             <span class="item_brand">[${item.mfi_name}]</span>

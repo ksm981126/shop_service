@@ -36,11 +36,11 @@
                         <input type="checkbox" value="${item_scd_seq}" class="cart_item_chk" checked>
                     </div>
                     <div class="info_area">
-                        <div class="img_box" style="background-image:url(http://localhost:8756/image/product/${item.thumbnail})">
+                        <div class="img_box" style="background-image:url(http://server02.hadoop.com:8756/image/product/${item.thumbnail})">
                         </div>
                         <div class="text_box">
                             <div class="seller">
-                                <div class="seller_pf_img" style="background-image:url(http://localhost:8756/image/seller/${item.si_img_url})"></div>
+                                <div class="seller_pf_img" style="background-image:url(http://server02.hadoop.com:8756/image/seller/${item.si_img_url})"></div>
                                 <p>${item.si_name}</p>
                             </div>
                             <a href="/product/detail?index=${item.pi_seq}">[${item.mfi_name}] ${item.pi_name}</a>
